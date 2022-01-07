@@ -1,0 +1,37 @@
+<div id="shopping-page-container">
+    <div id="shopping-page-menu">
+        <ul id="shopping-menu-list" >
+            <li class="menu-list-item" *ngFor="let category of categories" (click)="getByCategory(category)">{{ category }}</li>
+        </ul>
+    </div>
+    <div class="filter-items-wrapper">
+        <div class="filters">
+            <button mat-button [matMenuTriggerFor]="sort" id="sort-btn">
+                Sort By..
+            </button>
+            <mat-menu #sort="matMenu" overlapTrigger>
+                <button mat-menu-item (click)="getItems()">
+                    Relevance
+                </button>
+                <button mat-menu-item (click)="sortByPriceHighToLow()">
+                    Price (High to Low)
+                </button>
+                <button mat-menu-item (click)="sortByPriceLowToHigh()">
+                    Price (Low to High) 
+                </button>
+            </mat-menu>
+            <input type="text" id="title-search">
+            <button mat-button (click)="toggleView()" id="toggle-view-btn">Toggle List View</button>
+            <input type="range" min="0" max="10000" value="0" class="slider" id="price-slider">
+        </div>
+        <div id="item-container" *ngIf="!toggleListView">
+            <app-item *ngFor="let item of items" [itemPassed]="item"></app-item>
+        </div>
+        <div class="list-view" *ngIf="toggleListView">
+            <div *ngFor="let item of items" class="list-view-item">
+                <div class="overlay"></div>
+                <h3>${{ item.price }}</h3><span> {{ item.title }}</span>
+            </div>
+        </div>
+    </div>
+</div>

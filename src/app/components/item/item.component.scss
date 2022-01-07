@@ -1,0 +1,87 @@
+@import '../../styles/utilities/variables';
+
+.item-container {
+    height: inherit;
+    width: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $lightShade;
+    padding: 10px;
+    border-radius: 5px;
+    text-overflow: ellipsis;
+    padding-bottom: 0px;
+    transform: translateY(0);
+    transition: 0.3s ease-in-out;
+}
+
+.item-image {
+    width: 200px;
+    height: 200px;
+}
+
+.item-title {
+    font-size: 18px;
+    color: $darkShade;
+}
+
+.item-price {
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.image {
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.item-information {
+    max-height: 150px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    margin-bottom: 5px;
+}
+
+.item-options {
+    background-color: $primary;
+    width: calc(100% + 20px);
+    margin-left: -10px;
+    margin-right: -10px;
+    display: flex;
+    justify-content: flex-end;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.item-button {
+    color: $primary;
+    border-radius: 100%;
+    min-width: unset !important;
+    width: 35px !important;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+}
+
+.icon {
+    color: white;
+}
+
+.fade {
+    transition: 0.3s ease-in-out;
+    color: $lightShade;
+}
+
+.active {
+    transition: 0.3s ease-in-out;
+    color: $primaryAccent !important;
+}
+
+.item-container:hover {
+    transform: translateY(-10px);
+    transition: 0.3s;
+    transition-timing-function: ease-in-out;
+}

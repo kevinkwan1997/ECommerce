@@ -1,0 +1,12 @@
+<div class="cart-container">
+    <form id="checkout-form"></form>
+    <div class="cart-item-container">
+        <div *ngFor="let item of cart" class="cart-item">
+            <img class="cart-img" src="{{item.image}}" alt="">
+            <button mat-button class="cart-remove-btn" (click)="removeFromCart(item.id)">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+        <h2>total: $ {{ total }}</h2>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="item-container">
+    <h3 class="item-price">${{item.price}}</h3>
+    <div class="item-image">
+        <img class="image" src="{{item.image}}" alt="">
+        
+    </div>
+    <div class="item-information">
+        <h2 class="item-title">{{item.title}}</h2>
+        <p class="item-description">{{item.description}}</p>
+    </div>
+    <div class="item-options">
+        
+        <button mat-button class="item-button">
+            <mat-icon class="icon fade" [class.active]="isLiked" (click)="like()">favorite</mat-icon>
+        </button>
+        <button mat-button class="item-button">
+            <mat-icon class="icon fade" [class.active]="inCart" (click)="addToCart()">shopping_cart</mat-icon>
+        </button>
+    </div>
+</div>

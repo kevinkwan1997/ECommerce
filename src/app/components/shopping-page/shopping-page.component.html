@@ -2,6 +2,7 @@
     <div id="shopping-page-menu">
         <ul id="shopping-menu-list" >
             <li class="menu-list-item" *ngFor="let category of categories" (click)="getByCategory(category)">{{ category }}</li>
+            <input type="text" id="title-search">
         </ul>
     </div>
     <div class="filter-items-wrapper">
@@ -20,9 +21,9 @@
                     Price (Low to High) 
                 </button>
             </mat-menu>
-            <input type="text" id="title-search">
             <button mat-button (click)="toggleView()" id="toggle-view-btn">Toggle List View</button>
-            <input type="range" min="0" max="10000" value="0" class="slider" id="price-slider">
+            <label for="min-price" style="margin-left: 10px; color: white;">max</label>
+            <input type="number" name="min-price" value="50" min="1" class="price" [ngModel]="maxPrice" (ngModelChange)="onChange($event)">
         </div>
         <div id="item-container" *ngIf="!toggleListView">
             <app-item *ngFor="let item of items" [itemPassed]="item"></app-item>

@@ -34,7 +34,6 @@ export class ItemComponent implements OnInit {
 
   checkCart(id: number): void {
     let cart = this.cartService.cart.getValue();
-    console.log(cart);
     let hasItemInCart = cart.some( item => item['id'] === id);
     if(hasItemInCart) {
       this.inCart = true;

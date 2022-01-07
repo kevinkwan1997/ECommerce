@@ -1,0 +1,71 @@
+@import '../../styles/utilities/variables';
+
+#footer {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-head {
+    height: auto;
+    background-color: $darkShade;
+    display: flex;
+    justify-content: space-around;
+}
+
+#contact {
+    display: flex;
+}
+
+.footer-text {
+    color: $lightShade;
+    margin: 10px;
+}
+
+.footer-link {
+    font-weight: lighter;
+    transition: 0.1s ease-in-out;
+    cursor: pointer;
+}
+
+.footer-link:hover {
+    transition: 0.1s ease-in-out;
+    background-color: $primaryAccent;
+}
+
+#footer-table {
+    margin: 10px;
+}
+
+#subscribe {
+    border-top: 1px solid $primaryAccent;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+#email-label {
+    color: $lightShade;
+    text-align: center;
+    width: 60%;
+    font-weight: lighter;
+    margin: 10px;
+}
+
+#footer-email {
+    height: 35px;
+    width: 30%;
+    margin: 10px;
+}
+#subscribe-title {
+    color: $lightShade;
+}
+
+#footer-submit {
+    width: 100px;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    background-color: $primary;
+    color: $lightShade;
+}

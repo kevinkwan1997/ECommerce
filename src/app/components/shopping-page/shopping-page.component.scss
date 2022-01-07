@@ -89,8 +89,10 @@
     background-color: $primary;
 }
 
-#price-slider {
+.price {
     margin-left: 10px;
+    height: 32px;
+    border-radius: 5px;
 }
 
 #toggle-view-btn {

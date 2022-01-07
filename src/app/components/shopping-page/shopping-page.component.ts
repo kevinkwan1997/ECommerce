@@ -24,10 +24,13 @@ export class ShoppingPageComponent implements OnInit {
     "Men's Clothing",
     "Women's Clothing",
   ]
+  maxPrice: number = 0;
+  backup: Item[] = [];
 
   toggleView(): void {
     this.toggleListView = !this.toggleListView;
   }
+
 
   getByCategory(category: string): void {
     category = category.toLowerCase();
@@ -43,6 +46,7 @@ export class ShoppingPageComponent implements OnInit {
   getItems(): void {
     this.fakeStoreApiService.getAllProducts().subscribe(items => {
       this.items = items;
+      this.backup = items;
     })
   }
 
@@ -55,6 +59,16 @@ export class ShoppingPageComponent implements OnInit {
   sortByPriceLowToHigh(): void {
     this.items.sort(function(a, b){
       return a.price - b.price;
+    })
+  }
+
+
+  onChange(value: number) {
+    console.log(value);
+    this.maxPrice = value;
+    this.items = this.backup;
+    this.items = this.items.filter((item) => {
+      return item.price <= value;
     })
   }
 

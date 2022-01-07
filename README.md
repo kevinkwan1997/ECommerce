@@ -1,7 +1,7 @@
 # ECommerceApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.1.
-Angular Material used for buttons
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.1. <br />
+Angular Material used for buttons <br />
 FakeStoreAPI used for inventory
 
 ## Progress

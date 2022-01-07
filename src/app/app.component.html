@@ -2,8 +2,8 @@
   <nav>
     <app-nav-bar></app-nav-bar>
   </nav>
-  <div class="content-wrapper" >
-    <router-outlet></router-outlet>
+  <div class="content-wrapper" [@routeAnimations]="prepareRoute(outlet)">
+    <router-outlet #outlet="outlet"></router-outlet>
   </div>
 </div>
 <app-footer></app-footer>

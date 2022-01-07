@@ -6,7 +6,7 @@ import { ShoppingPageComponent } from './components/shopping-page/shopping-page.
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
-  { path: 'home', component: LandingPageComponent },
+  { path: 'home', component: LandingPageComponent, data:{ animation: true}},
   { path: 'cart', component: CartComponent },
   { path: 'shop', component: ShoppingPageComponent }
 ]

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Item } from 'src/app/models/item';
 import { FakeStoreApiService } from 'src/app/services/fake-store-api.service';
 import { LogService } from 'src/app/services/log.service';
@@ -12,9 +13,12 @@ export class ShoppingPageComponent implements OnInit {
 
   toggleListView: boolean = false;
 
+  public loading$: boolean = true;
+
   constructor(
     private fakeStoreApiService: FakeStoreApiService, 
-    private logService: LogService) { }
+    private logService: LogService) {
+     }
 
   items: Item[] = [];
   categories: string[] = [
@@ -73,6 +77,9 @@ export class ShoppingPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.fakeStoreApiService.loading$.subscribe(
+      loading => this.loading$ = loading
+    )
     this.getItems();
   }
 

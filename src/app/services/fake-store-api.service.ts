@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { catchError, map, tap } from 'rxjs/operators';
 
@@ -13,11 +13,12 @@ import { Item } from '../models/item';
 export class FakeStoreApiService {
 
   baseUrl = 'https://fakestoreapi.com'
+  loading$ = new BehaviorSubject<boolean>(true);
 
   constructor(
     private http: HttpClient,
     private logService: LogService) {
-
+      this.loading$.next(true);
    }
 
    getAllProducts(): Observable<Item[]> {
@@ -26,10 +27,15 @@ export class FakeStoreApiService {
       .pipe(
         tap(_ => {
           this.logService.log('Fetched all products')
+          this.loading$.next(false);
         }),
         catchError(this.handleError<Item[]>('getAllProducts', []))
       )
      
+   }
+
+   getLoading(): Observable<boolean> {
+     return this.loading$;
    }
 
    getProduct(id: number): Observable<Item> {
@@ -58,7 +64,10 @@ export class FakeStoreApiService {
      let url = `${this.baseUrl}/products/category/${category}`
      return this.http.get<Item[]>(url)
       .pipe(
-        tap(_ => this.logService.log(`Fetched products in category = ${category}`)),
+        tap(_ => { 
+          this.logService.log(`Fetched products in category = ${category}`);
+          this.loading$.next(false);
+        }),
         catchError(this.handleError<Item[]>('getPRoductsByCategory', []))
       )
 

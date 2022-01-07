@@ -5,6 +5,8 @@
     height: 50px;   
     background-color: $darkShade;
     color: $lightShade;
+    z-index: 99999999;
+    position: relative;
 }
 
 nav:after {

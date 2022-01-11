@@ -26,9 +26,9 @@
             <input type="number" name="min-price" value="50" min="1" class="price" [ngModel]="maxPrice" (ngModelChange)="onChange($event)">
         </div>
         <div id="item-container" *ngIf="!toggleListView">
-            <div class="loader" *ngIf="loading$"></div>
             <app-item *ngFor="let item of items" [itemPassed]="item"></app-item>
         </div>
+        <div class="loader" *ngIf="loading$"></div>
         <div class="list-view" *ngIf="toggleListView">
             <div *ngFor="let item of items" class="list-view-item">
                 <div class="overlay"></div>

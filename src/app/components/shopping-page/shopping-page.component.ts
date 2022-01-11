@@ -71,6 +71,9 @@ export class ShoppingPageComponent implements OnInit {
     console.log(value);
     this.maxPrice = value;
     this.items = this.backup;
+    if(this.maxPrice <= 0 || this.maxPrice === null) {
+      this.getItems();
+    }
     this.items = this.items.filter((item) => {
       return item.price <= value;
     })

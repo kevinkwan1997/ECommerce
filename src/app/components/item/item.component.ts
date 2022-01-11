@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Input } from '@angular/core';
 import { Item } from 'src/app/models/item';
 import { CartService } from 'src/app/services/cart.service';
+import { FullItemService } from 'src/app/services/full-item.service';
 import { LogService } from 'src/app/services/log.service';
 
 @Component({
@@ -11,7 +12,10 @@ import { LogService } from 'src/app/services/log.service';
 })
 export class ItemComponent implements OnInit {
 
-  constructor(private cartService: CartService, private logService: LogService) {
+  constructor(
+    private cartService: CartService,
+    private logService: LogService,
+    private fullItemService: FullItemService) {
 
   }
 
@@ -25,11 +29,18 @@ export class ItemComponent implements OnInit {
   like(): void {
     this.isLiked = !this.isLiked;
     this.likedItems.push(this.item.id);
+    this.fullItemService.like();
   }
   
   addToCart(): void {
     this.cartService.addItem(this.item);
     this.inCart = !this.inCart;
+    this.fullItemService.cart();
+  }
+
+  toggle(): void {
+    this.fullItemService.setItem(this.itemPassed);
+    this.fullItemService.toggle();
   }
 
   checkCart(id: number): void {

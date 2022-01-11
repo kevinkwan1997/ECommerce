@@ -61,3 +61,17 @@ export const slideInAnimation =
       query(':enter', animateChild()),
     ])
   ]);
+
+export const fullItemEnterAnimation = 
+trigger(
+    'fullItemEnterAnimation', [
+      transition(':enter', [
+        style({opacity: 0}),
+        animate('250ms', style({opacity: 1}))
+      ]),
+      transition(':leave', [
+        style({opacity: 1}),
+        animate('250ms', style({opacity: 0}))
+      ])
+    ]
+  )

@@ -15,6 +15,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ShoppingPageComponent } from './components/shopping-page/shopping-page.component';
 import { ItemComponent } from './components/item/item.component';
+import { FullItemComponent } from './components/full-item/full-item.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { ItemComponent } from './components/item/item.component';
     FooterComponent,
     ShoppingPageComponent,
     ItemComponent,
+    FullItemComponent,
   ],
   imports: [
     BrowserModule,

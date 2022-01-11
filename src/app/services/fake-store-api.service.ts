@@ -61,6 +61,7 @@ export class FakeStoreApiService {
    }
 
    getProductsByCategory(category: string): Observable<Item[]> {
+     this.loading$.next(true);
      let url = `${this.baseUrl}/products/category/${category}`
      return this.http.get<Item[]>(url)
       .pipe(

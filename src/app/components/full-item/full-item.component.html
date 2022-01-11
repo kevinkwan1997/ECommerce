@@ -1,0 +1,22 @@
+<div id="full-item-container" *ngIf="open" [@fullItemEnterAnimation] >
+    <div id="full-item-inner">
+        <div id="full-item-head">
+            <h2>{{ item.title }}</h2><p>${{ item.price }}</p>
+            <img id="full-item-image" src="{{ item.image }}" alt="">
+        </div>
+        <p>{{ item.category }}</p>
+        <p>{{ item.description }}</p>
+        <div id="rating">
+            <p>Rating: {{ item.rating.rate }} out of {{ item.rating.count }} reviews </p>
+        </div>
+    </div> 
+    <div id="full-item-options">
+        <button mat-button id="close-full" (click)="toggle()" >X</button>
+        <button mat-button [class.active]="liked">
+            <mat-icon class="icon">favorite</mat-icon>
+        </button>
+        <button mat-button [class.active]="inCart">
+            <mat-icon class="icon">shopping_cart</mat-icon>
+        </button>
+    </div>
+</div>

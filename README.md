@@ -6,8 +6,8 @@ FakeStoreAPI used for inventory
 
 ## Progress
 
-### Progress as of Jan 6, 2022
-![Progress as of Jan 6, 2022](Jan-6-Export.gif)
+### Progress as of Jan 11, 2022
+![Progress as of Jan 11, 2022](Jan-11-Export.gif)
 
 ## Development server
 
